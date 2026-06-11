@@ -1,0 +1,15 @@
+commit d4e4e8478910045f2b885f58b4bd27904908071f (HEAD -> past-exercises, origin/past-exercises)
+Author: Carlos Alfaro <caralfa.0287@gmail.com>
+Date:   Thu Jun 11 14:24:38 2026 -0400
+
+    Uploading first exercises
+# Este commit fue realizado para subir los trabajos anteriores al repositorio creado en el primer 
+ejercicio de Git
+
+
+commit 4c403614da6af5808b87bf824d2b052b66a89768 (origin/main, origin/HEAD, main)
+Author: caralfa0287-coder <caralfa.0287@gmail.com>
+Date:   Thu Jun 11 14:13:33 2026 -0400
+
+    Initial commit
+# Este commit fue creado automaticamente por el sistema al crear el repositorio
