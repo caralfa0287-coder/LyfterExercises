@@ -3,12 +3,10 @@ class Person:
         self.name = name
         
 
-
-
 class Bus:
-    max_passengers = 3
     
-    def __init__(self):
+    def __init__(self, max_passengers):
+        self.max_passengers = max_passengers
         self.passengers = []
 
     def pick_up_passengers(self, person):
@@ -27,7 +25,7 @@ class Bus:
 
 
 
-my_bus = Bus()
+my_bus = Bus(3)
 
 
 person1 = Person("Ana")
