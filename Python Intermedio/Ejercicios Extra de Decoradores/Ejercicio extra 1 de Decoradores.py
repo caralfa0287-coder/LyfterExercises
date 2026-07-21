@@ -3,8 +3,8 @@ import functools
 def repeat_twice(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
+        func(*args, **kwargs) 
         func(*args, **kwargs)  
-        return func(*args, **kwargs)  
     return wrapper
 
 @repeat_twice

@@ -22,8 +22,8 @@ def validate_number(func):
         return func(*args)
     return wrapper
 
-@log_call
 @validate_number
+@log_call
 def multiply(*args):
     a, b = args[0], args[1]
     return a * b
