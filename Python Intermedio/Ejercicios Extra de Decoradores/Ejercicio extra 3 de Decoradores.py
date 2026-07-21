@@ -11,7 +11,7 @@ def log_call(func):
         return result
     return wrapper
 
-def validate_number(func):
+def validate_numbers(func):
     @wraps(func)
     def wrapper(*args):
         if len(args) < 2:
@@ -22,7 +22,7 @@ def validate_number(func):
         return func(*args)
     return wrapper
 
-@validate_number
+@validate_numbers
 @log_call
 def multiply(*args):
     a, b = args[0], args[1]
