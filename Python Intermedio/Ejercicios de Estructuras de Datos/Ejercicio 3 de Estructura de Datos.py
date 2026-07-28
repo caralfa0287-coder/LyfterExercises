@@ -4,78 +4,58 @@ class Node:
         self.left = None
         self.right = None
 
+    def insert(self, value):
+        
+        if value > self.value:
+            if self.left is None:
+                self.left = Node(value)
+            else:
+                self.left.insert(value)
+        
+        else:
+            if self.right is None:
+                self.right = Node(value)
+            else:
+                self.right.insert(value)
+
+    def print_structure(self, level=0):
+        
+        if self.right is not None:
+            self.right.print_structure(level + 1)
+            
+        indentation = "    " * level
+        print(f"{indentation}── {self.value}")
+        
+        if self.left is not None:
+            self.left.print_structure(level + 1)
+
+
 class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def push_left(self, value):
-        new_node = Node(value)
-        if not self.root:
-            self.root = new_node
+    def insert(self, value):
+        if self.root is None:
+            self.root = Node(value)
         else:
-            new_node.right = self.root
-            self.root = new_node
+            self.root.insert(value)
 
-    def push_right(self, value):
-        new_node = Node(value)
-        if not self.root:
-            self.root = new_node
+    def print_tree(self):
+        if self.root is None:
+            print("The tree is empty.")
         else:
-            new_node.left = self.root
-            self.root = new_node
+            self.root.print_structure(0)
 
-    def pop_left(self):
-        if not self.root:
-            print("Error: Empty Structure.")
-            return None
-        
-        value = self.root.value
-        
-        if not self.root.left and not self.root.right:
-            self.root = None
-        elif self.root.right:
-            self.root = self.root.right
-        else:
-            self.root = self.root.left
-            
-        return value
 
-    def pop_right(self):
-        if not self.root:
-            print("Error: Empty Structure.")
-            return None
-            
-        value = self.root.value
-        
-        if not self.root.left and not self.root.right:
-            self.root = None
-        elif self.root.left:
-            self.root = self.root.left
-        else:
-            self.root = self.root.right
-            
-        return value
-
-    def show(self):
-        if not self.root:
-            print("Empty Structure")
-            return
-        
-        self._inorder_traversal(self.root)
-        print() 
-
-    def _inorder_traversal(self, actual_node):
-        if actual_node:
-            self._inorder_traversal(actual_node.left)
-
-            print(f"[{actual_node.value}]", end=" ")
-
-            self._inorder_traversal(actual_node.right)
-
-#----Ejemplo de Uso-----
+# ----Ejemplo de Uso----
 
 my_tree = BinaryTree()
-my_tree.push_right(10)
-my_tree.push_right(20)
-my_tree.push_left(5)
-my_tree.show()
+my_tree.insert(20)
+my_tree.insert(30)
+my_tree.insert(70)
+my_tree.insert(20)
+my_tree.insert(40)
+my_tree.insert(60)
+my_tree.insert(80)
+
+my_tree.print_tree()
