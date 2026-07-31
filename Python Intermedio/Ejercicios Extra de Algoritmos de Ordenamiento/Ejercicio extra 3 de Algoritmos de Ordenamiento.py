@@ -1,38 +1,40 @@
 def my_bubble_sort(list_to_sort):
-    if not list_to_sort:
-        raise ValueError("Error: La lista no puede estar vacía.") 
-
-    for element in list_to_sort:
-        if not isinstance(element, (int, float)):
-            raise TypeError("Error: La lista contiene elementos no numéricos")
-        
     n = len(list_to_sort)
-    iteraciones = 0
-    intercambios = 0
+        
+    for i in range(n): 
+            swapped = False
+            for j in range(0, n - i - 1):
+                current_element = list_to_sort[j]
+                next_element = list_to_sort[j+1]
     
-    for index in range(n):
-        swapped = False
-        iteraciones += 1
-        for index in range(0, n - index - 1):
-            current_element = list_to_sort[index]
-            next_element = list_to_sort[index+1]
+                if current_element > next_element:
+                    list_to_sort[j] = next_element
+                    list_to_sort[j + 1] = current_element
+                    swapped = True
+    
+            if not swapped:
+                break
+    
+    return list_to_sort
 
-            if current_element > next_element:
-                list_to_sort[index] = next_element
-                list_to_sort[index + 1] = current_element
-                swapped = True
-                intercambios += 1
+def validated_bubble_sort(list_to_sort,):
+    try: 
+        if len(list_to_sort) == 0:
+            raise ValueError("Error: La lista no puede estar vacía")
 
-        if not swapped:
-            break
+        for element in list_to_sort:
+            if not isinstance(element, (int, float)):
+                raise TypeError("Error: La lista contiene elementos no numéricos")
 
-    return list_to_sort, iteraciones, intercambios
+        return my_bubble_sort(list_to_sort)
+
+    except (ValueError, TypeError) as e:
+        return str(e)
+
+
 
 #----Ejemplo de Uso----
 
-my_list = []
-my_list, iteraciones, intercambios = my_bubble_sort(my_list)
+my_list = [5,4,2,3,1]
 
-print(f"Lista ordenada: {my_list}")
-print(f"Iteraciones: {iteraciones}")
-print(f"Intercambios: {intercambios}")
+print(validated_bubble_sort(my_list))
