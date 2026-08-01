@@ -35,6 +35,6 @@ def validated_bubble_sort(list_to_sort,):
 
 #----Ejemplo de Uso----
 
-my_list = [5,4,2,3,1]
+my_list = [5,4,3,2,1]
 
 print(validated_bubble_sort(my_list))
