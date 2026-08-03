@@ -2,7 +2,7 @@ def my_bubble_sort(list_to_sort):
     n = len(list_to_sort) # O(1)
     for index in range(n): # O(n)
         swapped = False # O(1)
-        for index in range(0, n - index - 1): # O(log n)
+        for index in range(0, n - index - 1): # O(n)
             current_element = list_to_sort[index] # O(1)
             next_element = list_to_sort[index+1] # O(1)
 
@@ -14,4 +14,4 @@ def my_bubble_sort(list_to_sort):
         if not swapped: # O(1)
             return # O(1)
 
-# Time complexity: O(log n)
+# Time complexity: O(n^2)
