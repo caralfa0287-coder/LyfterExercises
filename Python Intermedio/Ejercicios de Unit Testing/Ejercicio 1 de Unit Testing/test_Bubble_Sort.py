@@ -50,11 +50,13 @@ def test_validated_bubble_sort_with_non_list_input_returns_type_error():
     with pytest.raises(TypeError, match="Error: La entrada debe ser una lista numérica"):
         validated_bubble_sort(list_input)
 
-def test_validated_bubble_sort_with_empty_list_returns_value_error():
+def test_validated_bubble_sort_with_empty_list_returns_empty_list():
     # Arrange
     list_input = []
-    # Act & Assert
-    with pytest.raises(ValueError, match="Error: La lista no puede estar vacía"):
-        validated_bubble_sort(list_input)
+    # Act
+    result = validated_bubble_sort(list_input)
+    # Assert    
+    assert result == []  # The function should return an empty list without raising an error
+    
 
 

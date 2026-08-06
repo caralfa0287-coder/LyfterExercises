@@ -18,13 +18,11 @@ def my_bubble_sort(list_to_sort):
     return list_to_sort
 
 def validated_bubble_sort(list_to_sort,): 
-        if len(list_to_sort) == 0:
-            raise ValueError("Error: La lista no puede estar vacía")
+    for element in list_to_sort:
+        if not isinstance(element, (int, float)):
+            raise TypeError("Error: La entrada debe ser una lista numérica")
 
-        for element in list_to_sort:
-            if not list_to_sort or not isinstance(element, (int, float)):
-                raise TypeError("Error: La entrada debe ser una lista numérica")
 
-        return my_bubble_sort(list_to_sort)
+    return my_bubble_sort(list_to_sort)
 
 
