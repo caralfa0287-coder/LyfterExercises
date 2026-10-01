@@ -1,0 +1,23 @@
+CREATE TABLE Reviews (
+    review_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_code INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    comment TEXT NOT NULL,
+    rating INTEGER NOT NULL,
+    review_date DATETIME NOT NULL,
+    FOREIGN KEY (product_code) REFERENCES Products(code),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+CREATE TABLE Payment_Methods (
+    method_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    method_type TEXT NOT NULL,
+    bank_name TEXT
+);
+
+CREATE TABLE Users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    registration_date DATETIME NOT NULL
+);
