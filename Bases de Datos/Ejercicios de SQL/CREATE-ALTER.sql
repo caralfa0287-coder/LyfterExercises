@@ -19,7 +19,7 @@ CREATE TABLE Products_Per_Invoice (
     product_code INTEGER REFERENCES Products(code),
     quantity INTEGER NOT NULL,
     total_amount REAL NOT NULL,
-    PRIMARY KEY (invoice_number)
+    PRIMARY KEY (invoice_number, product_code)
 );
 
 CREATE TABLE Shopping_Cart (
@@ -37,5 +37,5 @@ ALTER TABLE Invoices
 ADD COLUMN employee_id INTEGER NOT NULL DEFAULT 0;
 
 ALTER TABLE Invoices
-ADD COLUMN phone_number INTEGER NOT NULL DEFAULT 0;
+ADD COLUMN phone_number TEXT NOT NULL DEFAULT 0;
 
