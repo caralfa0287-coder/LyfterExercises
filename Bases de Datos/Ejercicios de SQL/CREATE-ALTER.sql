@@ -31,6 +31,7 @@ CREATE TABLE Cart_Items (
     cart_id INTEGER REFERENCES Shopping_Cart (cart_id),
     product_code INTEGER REFERENCES Products (code),
     quantity INTEGER NOT NULL
+    PRIMARY KEY (cart_id, product_code)
 );
 
 ALTER TABLE Invoices

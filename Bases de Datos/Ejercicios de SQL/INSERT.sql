@@ -1,15 +1,18 @@
-INSERT INTO Products (code, name, price, entry_date, brand, stock_available)
-	VALUES (1234, 'Hammer', 34.99, '2026-06-01', 'Makita', 5);
+INSERT INTO Products (name, price, entry_date, brand, stock_available)
+	VALUES ('Hammer', 34.99, '2026-06-01', 'Makita', 5);
 
-INSERT INTO Products (code, name, price, entry_date, brand, stock_available)
-	VALUES (5678, 'Drill', 49.99, '2026-06-02', 'DeWalt', 10);
+INSERT INTO Products (name, price, entry_date, brand, stock_available)
+	VALUES ('Drill', 49.99, '2026-06-02', 'DeWalt', 10);
 
-INSERT INTO Products (code, name, price, entry_date, brand, stock_available)
-	VALUES (9012, 'TableSaw', 5198.50, '2026-06-03', 'Bosch', 2);
+INSERT INTO Products (name, price, entry_date, brand, stock_available)
+	VALUES ('TableSaw', 5198.50, '2026-06-03', 'Bosch', 2);
 
-INSERT INTO Products (code, name, price, entry_date, brand, stock_available)
-	VALUES (3456, 'Chainsaw', 299.99, '2026-06-04', 'Stihl', 7);
+INSERT INTO Products (name, price, entry_date, brand, stock_available)
+	VALUES ('Chainsaw', 299.99, '2026-06-04', 'Stihl', 7);
 
+INSERT INTO Products (name, price, entry_date, brand, stock_available)
+	VALUES ('Mower', 3455.99, '2026-06-01', 'Makita', 2);
+	
 INSERT INTO Invoices (invoice_number, purchase_date, buyer_email, total_amount, employee_id, phone_number)
 	VALUES (00001, '2026-07-05', 'caralfa@example.com', 334.98, 0035, '+0018432272707');
 

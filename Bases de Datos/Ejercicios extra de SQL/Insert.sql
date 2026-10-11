@@ -7,7 +7,7 @@ INSERT INTO Categories (id, name, description)
 INSERT INTO Categories (id, name, description)
 	VALUES (3, 'Fasteners', 'Precision fasteners for construction projects');
 
-###Inserte al menos 10 filas en products con product_name, price, stock_available
+-- Inserte al menos 10 filas en products con product_name, price, stock_available
 INSERT INTO Products (code, name, price, entry_date, stock_available, brand)
 	VALUES (9011, 'Tool box', 1150.00, '2023-10-01', 10, 'Brand A');
 
