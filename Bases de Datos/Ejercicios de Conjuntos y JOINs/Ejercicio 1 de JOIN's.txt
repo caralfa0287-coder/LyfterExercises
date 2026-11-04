@@ -1,0 +1,39 @@
+# Ejercicios de JOINs: investigación sobre SELECT
+
+## Introducción
+
+`SELECT` es una instrucción de SQL que permite consultar y recuperar datos de una o varias tablas. Las cláusulas que se utilizan con `SELECT` ayudan a ordenar resultados, limitar la cantidad de filas, agrupar datos y combinar información relacionada entre tablas.
+
+## Tabla informativa
+
+| Funcionalidad | ¿Para qué sirve?                            | ¿Cómo funciona?                                                                  | Ejemplo de uso                                   |
+|---------------|---------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------|
+| `SELECT`      | Consultar información de una base de datos. | Indica qué columnas se desean mostrar. Puede utilizarse con una o varias tablas. | Mostrar el nombre y el teléfono de los clientes. |
+| `ORDER BY`    | Ordenar las filas del resultado.            | Ordena por una o varias columnas. `ASC` ordena de menor a mayor o alfabéticamente; `DESC`, de mayor a menor o en orden alfabético inverso. Si no se indica el sentido, normalmente se utiliza `ASC`. | Mostrar los productos ordenados por precio, del más caro al más barato. |
+| `LIMIT`       | Restringir la cantidad de filas que devuelve una consulta. | Establece el máximo de filas que se mostrarán. Suele combinarse con `ORDER BY` para seleccionar resultados en un orden predecible. | Mostrar los cinco productos más caros. |
+| `GROUP BY`    | Agrupar filas que comparten un valor en una o varias columnas. | Se utiliza habitualmente con funciones de agregación, como `COUNT` (contar), `SUM` (sumar), `AVG` (promediar), `MIN` (mínimo) y `MAX` (máximo). Cada grupo produce un resultado resumido. | Calcular cuántas compras se han realizado por cliente. |
+| `INNER JOIN`  | Combinar filas de dos tablas cuando existe una coincidencia entre ellas. | Solo devuelve las filas que cumplen la condición de unión en ambas tablas. | Mostrar las facturas que tienen un cliente asociado. |
+| `LEFT JOIN` (o `LEFT OUTER JOIN`) | Conservar todas las filas de la tabla situada a la izquierda y añadir los datos coincidentes de la tabla derecha. | Si una fila de la tabla izquierda no tiene coincidencia, sus columnas de la tabla derecha aparecen como `NULL`. | Mostrar todos los clientes, incluidos aquellos que todavía no tienen facturas. |
+| `RIGHT JOIN` (o `RIGHT OUTER JOIN`) | Conservar todas las filas de la tabla situada a la derecha y añadir los datos coincidentes de la tabla izquierda. | Si no hay coincidencia en la tabla izquierda, las columnas de esa tabla aparecen como `NULL`. | Mostrar todas las facturas registradas en la tabla derecha, incluso si no tienen una coincidencia en la tabla izquierda. |
+
+## Diferencias entre los tres tipos de JOIN
+
+- **`INNER JOIN`:** devuelve solamente las coincidencias de ambas tablas.
+- **`LEFT JOIN`:** devuelve todas las filas de la tabla izquierda y las coincidencias de la derecha.
+- **`RIGHT JOIN`:** devuelve todas las filas de la tabla derecha y las coincidencias de la izquierda.
+
+En los tres casos, la condición de unión suele indicar qué columnas relacionadas se comparan. Normalmente se utiliza una clave primaria de una tabla y una clave foránea de la otra.
+
+## Observaciones importantes
+
+1. `ORDER BY` es necesario cuando se quiere garantizar un orden específico; sin él, no debe suponerse que las filas aparecerán en un orden determinado.
+2. `LIMIT` limita la cantidad de filas devueltas, pero para obtener resultados consistentes conviene acompañarlo de `ORDER BY`.
+3. `GROUP BY` suele combinarse con funciones de agregación. `WHERE` filtra filas antes de agruparlas y `HAVING` permite filtrar los grupos resultantes.
+4. Los `JOIN` combinan información de distintas tablas mediante una condición de relación.
+5. La compatibilidad de algunos tipos de `JOIN` depende del sistema gestor y de su versión. Las versiones actuales de SQLite admiten `INNER`, `LEFT`, `RIGHT` y `FULL OUTER JOIN`; en versiones antiguas puede que `RIGHT JOIN` no esté disponible.
+
+## Fuentes consultadas
+
+- SQLite, documentación oficial de `SELECT`: https://www.sqlite.org/lang_select.html
+- PostgreSQL, documentación oficial de consultas (`SELECT`): https://www.postgresql.org/docs/current/sql-select.html
+- PostgreSQL, documentación oficial sobre consultas, agrupación y ordenamiento: https://www.postgresql.org/docs/16/queries.html
