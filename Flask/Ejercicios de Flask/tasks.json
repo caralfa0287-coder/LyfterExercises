@@ -1,0 +1,8 @@
+[
+    {
+        "identifier": 1,
+        "title": "Studying Flask",
+        "description": "Learn how to create a REST API with Python",
+        "status": "To Do"
+    }
+]
